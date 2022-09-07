@@ -1,0 +1,27 @@
+
+
+Select *
+from `Spotify.spotify_data`;
+
+
+
+/* Which artist had the most Top 100 Singles */
+Select Count(name) as CountofSingles, artists 
+from `Spotify.spotify_data`
+GROUP BY artists
+ORDER BY CountofSingles desc;
+
+
+/*Number of artist that had 'Lil' in their name, that had Top Singles in 2018*/
+Select count(artists) AS totalname
+from `Spotify.spotify_data`
+Where artists LIKE '%Lil%' ;
+
+
+/*Average danceability number each artist had for their Top Singles in 2018*/
+SELECT AVG(danceability) as dance, Count(name) as Countsongs, artists
+FROM `Spotify.spotify_data`
+group by artists
+ORDER BY Countsongs desc;
+
+
